@@ -1,64 +1,58 @@
-import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import javafx.scene.control.Button;
 
-public class QuestionBox extends Application{
+public class QuestionBox {
 
-    private Stage window;
+    static boolean answer;
 
-    public static void main(String[] args){
-        //LAUNCH THE FORM
-        launch(args);
-    }
+    public static boolean dialogDisplay(String message){
 
-    //OVERRIDE start FROM Application
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        //put primaryStage to window variable
-        //primaryStage is the current form
-        window = primaryStage;
+        //CREATE A STAGE
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Dialog box");
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
 
-        //set title of stage
-        window.setTitle("This is Main page");
+        //CREATE ELEMENTS
+        Label dialogMessage = new Label(message);
+        Button yesBtn = new Button("Yes");
+        Button noBtn = new Button("No");
 
-        //create the button
-        Button dialogButton = new Button("Open Dialog box");
-
-        //set action on button click
-        dialogButton.setOnAction(e -> {
-            boolean result = DialogBox.dialogDisplay("Yes or No?");
-            System.out.println(result);
+        //SET EVENT ACTIONS
+        yesBtn.setOnAction(e -> {
+            answer = true;
+            dialogStage.close();
         });
 
-        //set action on form/stage close
-        window.setOnCloseRequest(e -> {
-            e.consume();
-            this.closeProgram();
+        noBtn.setOnAction(e -> {
+            answer = false;
+            dialogStage.close();
         });
 
-        //create a stackpane layout
-        StackPane spLayout = new StackPane();
-        //add element to layout
-        spLayout.getChildren().add(dialogButton);
+        //CREATE LAYOUT
+        VBox vLayout = new VBox(20);
+        vLayout.getChildren().addAll(dialogMessage,yesBtn,noBtn);
+        vLayout.setAlignment(Pos.CENTER);
 
-        //create a scene and pass the layout
-        //scene is the functionality inside a form
-        Scene mainScene = new Scene(spLayout,300,250);
+        //CREATE SCENE
+        Scene dialogScene = new Scene(vLayout,200,150);
 
-        //set scene of stage
-        window.setScene(mainScene);
-        //show stage
-        window.show();
+        //SET SCENE TO STAGE
+        dialogStage.setScene(dialogScene);
+        dialogStage.showAndWait();
+
+        return answer;
     }
 
-    //CREATE CLOSE PROGRAM METHOD
-    public void closeProgram(){
-        //call dialogbox
-        boolean answer = DialogBox.dialogDisplay("Are you sure you want to close this window?");
+    public static void closeProgram(Stage stage){
+        boolean answer = QuestionBox.dialogDisplay("Are you sure you want to close this window?");
         if (answer){
-            window.close();
+            stage.close();
         }
     }
 }

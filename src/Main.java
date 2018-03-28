@@ -18,6 +18,33 @@ public class Main extends Application{
 
     }
 
+    //QUESTION BOX
+    //Uncomment to test
+//    @Override
+//    public void start(Stage primaryStage) {
+//        primaryStage.setTitle("This is Main page");
+//
+//        Button dialogButton = new Button("Open Dialog box");
+//
+//        dialogButton.setOnAction(e -> {
+//            boolean result = QuestionBox.dialogDisplay("Yes or No?");
+//            System.out.println(result);
+//        });
+//
+//        primaryStage.setOnCloseRequest(e -> {
+//            e.consume();
+//            QuestionBox.closeProgram(primaryStage);
+//        });
+//
+//        StackPane spLayout = new StackPane();
+//        spLayout.getChildren().add(dialogButton);
+//
+//        Scene mainScene = new Scene(spLayout,300,250);
+//        primaryStage.setScene(mainScene);
+//        primaryStage.show();
+//
+//    }
+
     //ALERT BOX
     //Uncomment to test
 //    @Override
@@ -34,6 +61,7 @@ public class Main extends Application{
 //        primaryStage.setScene(mainScene);
 //        primaryStage.show();
 //    }
+
 
 
 }
