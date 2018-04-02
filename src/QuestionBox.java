@@ -18,7 +18,7 @@ public class QuestionBox {
         dialogStage.setTitle("Dialog box");
         dialogStage.initModality(Modality.APPLICATION_MODAL);
 
-        //CREATE ELEMENTS
+        //CREATE CONTROLS
         Label dialogMessage = new Label(message);
         Button yesBtn = new Button("Yes");
         Button noBtn = new Button("No");

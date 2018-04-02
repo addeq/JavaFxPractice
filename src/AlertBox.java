@@ -14,14 +14,14 @@ public class AlertBox {
         window.initModality(Modality.APPLICATION_MODAL); //set the box to priority //cant click parent form while in this form
         window.setMinWidth(300); //set minimum width to 300
 
-        //CREATE THE ELEMENTS
+        //CREATE THE CONTROLS
         Label label = new Label(message); //create label
         Button button = new Button("Close"); //create button
         button.setOnAction(e -> window.close()); //set action on click to close the form
 
         //CREATE THE LAYOUT
         VBox vLayout = new VBox(10); //create vertical layout box
-        vLayout.getChildren().addAll(label,button); //add elements to layout
+        vLayout.getChildren().addAll(label,button); //add controls to layout
         vLayout.setAlignment(Pos.CENTER); //set alignment to center
 
         //CREATE THE SCENE

@@ -1,10 +1,14 @@
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
+import java.util.Stack;
 
 public class Main extends Application{
 
@@ -15,6 +19,26 @@ public class Main extends Application{
 
     @Override
     public void start(Stage primaryStage) {
+
+        primaryStage.setTitle("JavaFx Practice");
+
+        //Controls to test goes here
+        Button button = new Button();       //creates new button
+        button.setText("Button");           //set button text
+        button.getStyleClass().add("button-blue");
+        //
+        AnchorPane anchorPane = new AnchorPane();
+        //Events for that controls goes here
+
+        //
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().add(button); //change the control here
+
+        Scene scene = new Scene(stackPane,200,200);
+        scene.getStylesheets().add("JavaFxStyleSheet.css");
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
 
     }
 

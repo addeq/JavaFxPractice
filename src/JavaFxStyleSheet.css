@@ -1,0 +1,18 @@
+.root{
+    -fx-background-color: #383838;      /*to change background color*/
+    -fx-font-size: 11pt;                /*to change font size*/
+}
+
+.button{                                /*to set css styles on control use name of control but lowercase*/
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #383838;             /*color of text*/
+    -fx-background-radius: 0;           /*radius of background*/
+}
+
+.button-blue{                           /*custom style*/
+    -fx-background-color: #7cafc2;
+}
+
+#bold-text{                             /*create an id*/
+    -fx-font-weight: bold;
+}

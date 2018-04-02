@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <!--DEFINING REUSABLE OBJECT-->
+    <fx:define>
+        <ToggleGroup fx:id="toggleGroup" />
+    </fx:define>
+    <!--USING THE REUSABLE OBJECT | $ sign to reference the object)-->
+    <RadioButton text="A" toggleGroup="$toggleGroup" />
+    <RadioButton text="B" toggleGroup="$toggleGroup" />
+    <RadioButton text="C" toggleGroup="$toggleGroup" />
+
+    <!--EVENT HANDLING -->
+    <!--set the fx:id(is the name of the variable-->
+    <!--set the name of the object to id | set the name of method to call on onAction -->
+    <Button text="Submit" fx:id="button" onAction="#handleButtonClick"/>
+
+    <!--BINDING -->
+    <Label text="Bind label" fx:id="bindLabel"/>
+    <!--$ sign to reference the object-->
+    <Label text="${bindLabel.text}"/>
+
+
+
+</VBox>
